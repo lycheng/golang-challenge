@@ -1,9 +1,8 @@
-.PHONY : all test test_%
+.PHONY : all test test-%
 
 all: test
 
 test: test-codewars
-	@echo "** Test finished **"
 
 test-codewars:
 	ginkgo -r ./codewars
