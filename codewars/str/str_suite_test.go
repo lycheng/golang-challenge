@@ -65,3 +65,18 @@ var _ = Describe("Basic Tests", func() {
 		Expect(FirstNonRepeating("Go hang a salami, I'm a lasagna hog!")).To(Equal(","))
 	})
 })
+
+func dotest1(prod string, exp int) {
+	var ans = duplicateCount(prod)
+	Expect(ans).To(Equal(exp))
+}
+
+var _ = Describe("Test Example", func() {
+
+	It("should handle basic cases", func() {
+		dotest1("abcde", 0)
+		dotest1("abcdea", 1)
+		dotest1("abcdeaB11", 3)
+		dotest1("indivisibility", 1)
+	})
+})
