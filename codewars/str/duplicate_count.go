@@ -6,14 +6,10 @@ import "strings"
 func duplicateCount(s1 string) int {
 	s := strings.ToLower(s1)
 	m := make(map[rune]int)
+	rv := 0
 
 	for _, c := range s {
-		m[c]++
-	}
-
-	rv := 0
-	for _, cnt := range m {
-		if cnt > 1 {
+		if m[c]++; m[c] == 2 {
 			rv++
 		}
 	}
