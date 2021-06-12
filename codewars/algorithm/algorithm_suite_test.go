@@ -1,6 +1,7 @@
 package algorithm
 
 import (
+	"math"
 	"testing"
 
 	. "github.com/onsi/ginkgo"
@@ -53,5 +54,33 @@ var _ = Describe("Test Example", func() {
 	})
 	It("'divide' should return a divided by b!", func() {
 		Expect(Arithmetic(8, 2, "divide")).To(Equal(4))
+	})
+})
+
+var _ = Describe("Example test", func() {
+	It("Example test case", func() {
+		Expect(FindOutlier([]int{2, 6, 8, -10, 3})).To(Equal(3))
+		Expect(FindOutlier([]int{206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781})).To(Equal(206847684))
+		Expect(FindOutlier([]int{math.MaxInt32, 0, 1})).To(Equal(0))
+	})
+})
+
+var _ = Describe("Test Vasya Clerk", func() {
+	It("should work for some basic cases", func() {
+		Expect(Tickets([]int{25, 25, 50})).To(Equal("YES"))
+		Expect(Tickets([]int{25, 100})).To(Equal("NO"))
+	})
+})
+
+func dotest2(v1, v2, g int, exp [3]int) {
+	var ans = Race(v1, v2, g)
+	Expect(ans).To(Equal(exp))
+}
+
+var _ = Describe("Test Tortoise Racing", func() {
+	It("should handle basic cases", func() {
+		dotest2(720, 850, 70, [3]int{0, 32, 18})
+		dotest2(820, 81, 550, [3]int{-1, -1, -1})
+		dotest2(80, 91, 37, [3]int{3, 21, 49})
 	})
 })

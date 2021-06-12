@@ -5,4 +5,4 @@ all: test
 test: test-codewars
 
 test-codewars:
-	ginkgo -r ./codewars
+	@ginkgo -r ./codewars
