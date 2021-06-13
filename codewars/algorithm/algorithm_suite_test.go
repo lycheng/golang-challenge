@@ -84,3 +84,35 @@ var _ = Describe("Test Tortoise Racing", func() {
 		dotest2(80, 91, 37, [3]int{3, 21, 49})
 	})
 })
+
+func dotest3(n int, exp [][]int) {
+	var ans = Solequa(n)
+	Expect(ans).To(Equal(exp))
+}
+
+var _ = Describe("Test Example", func() {
+
+	It("should handle basic cases", func() {
+		dotest3(5, [][]int{{3, 1}})
+		dotest3(12, [][]int{{4, 1}})
+		dotest3(13, [][]int{{7, 3}})
+		dotest3(9005, [][]int{{4503, 2251}, {903, 449}})
+		dotest3(9008, [][]int{{1128, 562}})
+		dotest3(90002, [][]int{})
+	})
+})
+
+func dotest4(k, start, nd int, exp []int) {
+	var ans = Gap(k, start, nd)
+	Expect(ans).To(Equal(exp))
+}
+
+var _ = Describe("Gap In Primes", func() {
+	It("should handle basic cases", func() {
+		dotest4(2, 100, 110, []int{101, 103})
+		dotest4(4, 100, 110, []int{103, 107})
+		dotest4(6, 100, 110, nil)
+		dotest4(8, 300, 400, []int{359, 367})
+		dotest4(10, 300, 400, []int{337, 347})
+	})
+})
