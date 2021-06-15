@@ -16,13 +16,11 @@ func CountKprimes(k, start, nd int) []int {
 }
 
 func kPrime(n int) (k int) {
-	i := 2
-	for i*i <= n {
+	for i := 2; i*i <= n; i++ {
 		for n%i == 0 {
 			n /= i
 			k++
 		}
-		i++
 	}
 	if n > 1 {
 		k++

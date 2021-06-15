@@ -138,3 +138,16 @@ var _ = Describe("Test Example", func() {
 		dotest6(143, 2)
 	})
 })
+
+func dotest7(n int, exp string) {
+	var ans = PrimeFactors(n)
+	Expect(ans).To(Equal(exp))
+}
+
+var _ = Describe("ConvertFracts", func() {
+	It("Basic tests", func() {
+		dotest7(841, "(29**2)")
+		dotest7(7775460, "(2**2)(3**3)(5)(7)(11**2)(17)")
+		dotest7(79340, "(2**2)(5)(3967)")
+	})
+})
