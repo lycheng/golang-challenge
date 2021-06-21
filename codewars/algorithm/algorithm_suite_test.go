@@ -151,3 +151,27 @@ var _ = Describe("ConvertFracts", func() {
 		dotest7(79340, "(2**2)(5)(3967)")
 	})
 })
+
+func dotest8(nb int, exp string) {
+	var ans = Dec2FactString(nb)
+	Expect(ans).To(Equal(exp))
+}
+
+func dotest9(str string, exp int) {
+	var ans = FactString2Dec(str)
+	Expect(ans).To(Equal(exp))
+}
+
+var _ = Describe("Tests", func() {
+
+	It("should handle basic cases Dec2FactString", func() {
+		dotest8(36288000, "A0000000000")
+		dotest8(2982, "4041000")
+	})
+
+	It("should handle basic cases FactString2Dec", func() {
+		dotest9("341010", 463)
+		dotest9("4042100", 2990)
+
+	})
+})
